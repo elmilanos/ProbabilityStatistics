@@ -1,8 +1,8 @@
 # ProbabilityStatistics
 Space for activities carried out in the subject of Probability and Statistics taught by M.C. Christian Ríos Chavarría, professor of the Software Engineering Academy at the "Universidad Politécnica de Durango".
 
-# ![COLAB WORK](https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/colab-color.png)
-# ESTADÍSTICA DESCRIPTIVA & VISUALIZACIÓN DE DATOS
+![COLAB icon](https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/colab-color.png)
+## ESTADÍSTICA DESCRIPTIVA & VISUALIZACIÓN DE DATOS
 <table>
 <tr>
 <td>
@@ -20,6 +20,7 @@ Space for activities carried out in the subject of Probability and Statistics ta
 ## 2.- ANÁLISIS DESCRIPTIVO
 Una vez recopilados los datos, procedemos a calcular las principales medidas estadísticas utilizando Python y las bibliotecas Pandas, Matplotlib y Seaborn.
 
+#### Python code:
 ```
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -53,9 +54,9 @@ print(f"Varianza: {varianza}")
 print(f"Desviación Estándar: {desviacion_estandar}")
 ```
 
+![image](https://github.com/user-attachments/assets/4826f50d-5a2d-48e3-801c-950e6dfacfb3)
 
 <hr>
-
 
 ## 3.- VISUALIZACIÓN
 
@@ -67,65 +68,86 @@ Procedemos a crear las visualizaciones para representar las distribuciones y car
     </td>
   </tr>
 </table>
-![](https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG)
 
-### Query Filled Form
-![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
+```
+# Configurar el estilo de los gráficos
+sns.set(style="whitegrid")
 
-### Charts
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart1.JPG)
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart2.JPG)
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart3.JPG)
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Inversion'], bins=20, kde=True)
+plt.title('Distribución de la Inversión en Tecnología en Durango')
+plt.xlabel('Monto de Inversión')
+plt.ylabel('Frecuencia')
+plt.show()
 
+# Diagrama de caja (boxplot)
+plt.figure(figsize=(8, 4))
+sns.boxplot(x=df['Inversion'])
+plt.title('Diagrama de Caja de la Inversión en Tecnología en Durango')
+plt.xlabel('Monto de Inversión')
+plt.show()
 
-## Mobile support
-The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
+# Gráfico de barras por sector (si se dispone de esta información)
+plt.figure(figsize=(12, 6))
+sns.barplot(x='Sector', y='Inversion', data=df, estimator=sum, ci=None)
+plt.title('Inversión Total en Tecnología por Sector en Durango')
+plt.xlabel('Sector')
+plt.ylabel('Inversión Total')
+plt.xticks(rotation=45)
+plt.show()
+```
 
-![](https://iharsh234.github.io/WebApp/images/demo/mobile.png)
+### Histograma
+![Imagen de WhatsApp 2025-01-23 a las 13 47 45_38a4f0db](https://github.com/user-attachments/assets/e4f9aabf-e640-445d-9684-bcaf0d7aba35)
 
+### Caja
+![Imagen de WhatsApp 2025-01-23 a las 13 48 06_caa5f019](https://github.com/user-attachments/assets/f90212d4-874a-4ace-9a9d-960b3bfdfb5c)
 
+### Barras
+![Imagen de WhatsApp 2025-01-23 a las 13 48 23_e5271cb2](https://github.com/user-attachments/assets/be2c6606-f78d-4ac9-a5c3-064fb6486117)
 
+<hr>
 
-## [Usage](https://iharsh234.github.io/WebApp/) 
-
-### Development
-Want to contribute? Great!
-
-To fix a bug or enhance an existing module, follow these steps:
-
-- Fork the repo
-- Create a new branch (`git checkout -b improve-feature`)
-- Make the appropriate changes in the files
-- Add changes to reflect the changes made
-- Commit your changes (`git commit -am 'Improve feature'`)
-- Push to the branch (`git push origin improve-feature`)
-- Create a Pull Request 
-
-### Bug / Feature Request
-
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/iharsh234/WebApp/issues/new) by including your search query and the expected result.
-
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iharsh234/WebApp/issues/new). Please include sample queries and their corresponding results.
-
-
-## Built with 
-
-- [jQuery - Ajax](http://www.w3schools.com/jquery/jquery_ref_ajax.asp) - jQuery simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.
-- [Google Chart API](https://developers.google.com/chart/interactive/docs/quick_start) - Free , Rich Gallery , Customizable and Cross-browser compatible.
-- [Bootstrap](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
+## 4.- INTERPRETACIÓN
+Con base en los resultados obtenidos podemos concluir lo siguiente:
 
 
-## To-do
-- Add BSE (India) Symbol to the current App.
-- Decide comparison models of Stocks. (suggestions are most welcome).
-- Another WebApp, capable of comparing at least 10 stocks.
+### Medidas de tendencia central y dispersión:
+* La media y la mediana nos indican el promedio y el punto medio de las inversiones, respectivamente.
+* La moda muestra el monto de inversión más frecuente. 
+* La varianza y la desviación estándar nos indican la dispersión de los datos, es decir, cuánto varían las inversiones respecto a la media.
 
-## Team
 
-[![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
----|---
-[Harsh Vijay ](https://github.com/iharsh234) |[Quandl](https://www.quandl.com)
+### Gráficos:
+* El histograma muestra cómo se distribuyen los montos de inversión, permitiendo identificar si hay sesgos o concentraciones en ciertos rangos.
+* El diagrama de caja ayuda a detectar valores atípicos y visualizar la dispersión de los datos.
+* El gráfico de barras por sector permite comparar la inversión total entre diferentes sectores, identificando cuáles reciben más o menos inversión.
 
-## [License](https://github.com/iharsh234/WebApp/blob/master/LICENSE.md)
 
-MIT © [Harsh Vijay ](https://github.com/iharsh234)
+Finalmente, estas interpretaciones nos permiten sacar conclusiones sobre el comportamiento de la inversión en avances tecnológicos en Durango, identificando tendencias, posibles áreas de mejora y sectores prioritarios para futuras inversiones.
+
+Este análisis proporciona una visión clara y concisa de la inversión en tecnología en Durango.
+
+<hr>
+
+# Team
+
+<table>
+ <tr>
+  <td>
+    <img src="https://github.com/user-attachments/assets/49f24da2-18b5-4eff-9a5d-dc266d362052" alt="FotoDeIvan" width="300" height="300">   
+  </td>
+  <td>
+   <img src="https://github.com/user-attachments/assets/db390ce9-c030-4fe0-8177-c80e5464f148" alt="FotoMia" width="300" height="300">
+  </td>
+  <td>
+   <img src="https://github.com/user-attachments/assets/709f2fb3-fc24-45b9-9b2d-1625b73a19c7" alt="FotoMia" width="300" height="300">
+  </td>
+ </tr>
+ <tr>
+  <td>IVAN A RAMOS GONZALEZ</td>
+  <td>EHECATL E REYES NAJERA</td>
+  <td>LUIS A SIMENTAL OCHOA</td>
+ </tr>
+</table>
